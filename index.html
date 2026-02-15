@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For Abeer ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  font-family:'Segoe UI',sans-serif;
+  background:radial-gradient(circle at top,#2b0033,#000);
+  color:#fff;
+  overflow-x:hidden;
+}
+
+.section{
+  display:none;
+  min-height:100vh;
+  padding:40px 20px;
+  text-align:center;
+}
+.section.active{display:block;}
+
+h1,h2,h3{color:#ffb6d9;}
+
+.btn-pink{
+  background:#ff4f9a;
+  border:none;
+  color:white;
+  padding:12px 25px;
+  border-radius:30px;
+  font-size:18px;
+  margin:10px;
+}
+.btn-white{
+  background:white;
+  color:#ff4f9a;
+  border:none;
+  padding:12px 25px;
+  border-radius:30px;
+  font-size:18px;
+  margin:10px;
+}
+
+.question{
+  background:rgba(255,255,255,0.08);
+  border-radius:20px;
+  padding:20px;
+  margin:20px auto;
+  max-width:600px;
+}
+
+.answer{
+  display:block;
+  background:#fff;
+  color:#ff4f9a;
+  border-radius:30px;
+  padding:10px;
+  margin:10px auto;
+  width:80%;
+  cursor:pointer;
+  transition:0.3s;
+  position:relative;
+}
+
+.answer.correct{background:#4CAF50;color:#fff;}
+.answer.wrong{background:#e53935;color:#fff;}
+.answer.disabled{pointer-events:none;opacity:0.9;}
+
+#noBtn{position:relative;}
+
+.rain-heart{
+  position:fixed;
+  top:-20px;
+  font-size:26px;
+  animation:fall linear forwards;
+}
+@keyframes fall{
+  to{transform:translateY(110vh);opacity:0;}
+}
+
+/* 💖 IMAGE + LETTER STYLES */
+.letter-box{
+  animation:fadeZoom 1.5s ease forwards;
+}
+
+.love-img{
+  background-image: url(LOVE.jpeg);
+  width:240px;
+  max-width:80%;
+  border-radius:25px;
+  box-shadow:0 0 25px rgba(255,182,217,0.6);
+  margin-bottom:25px;
+  animation:float 4s ease-in-out infinite;
+}
+
+@keyframes fadeZoom{
+  from{opacity:0;transform:scale(0.9);}
+  to{opacity:1;transform:scale(1);}
+}
+
+@keyframes float{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-10px);}
+}
+
+#loveText{
+  max-width:700px;
+  margin:20px auto;
+  font-size:18px;
+  line-height:1.8;
+  white-space:pre-wrap;
+}
+
+/* CRACKERS */
+.cracker{
+  position:fixed;
+  bottom:0;
+  font-size:22px;
+  animation:cracker linear infinite;
+}
+@keyframes cracker{
+  to{transform:translateY(-110vh);opacity:0;}
+}
+</style>
+</head>
+
+<body>
+
+<!-- START -->
+<section id="start" class="section active">
+  <h1>Heyyy Loveee 💖</h1>
+  <h2>Let’s Begin 😘</h2>
+  <button class="btn-pink" onclick="switchSec('start','quiz')">Start ▶️</button>
+</section>
+
+<!-- QUIZ (UNCHANGED) -->
+<section id="quiz" class="section">
+  <h1>Abeer 💕 Valentine Quiz</h1>
+  <h3>Score: <span id="score">0</span>/5</h3>
+
+  <div class="question">
+    <h3>1. My favourite colour?</h3>
+    <div class="answer" onclick="checkAnswer(this,true)">White</div>
+    <div class="answer" onclick="checkAnswer(this,false)">Red</div>
+    <div class="answer" onclick="checkAnswer(this,false)">Black</div>
+  </div>
+
+  <div class="question">
+    <h3>2. By which name I call you most?</h3>
+    <div class="answer" onclick="checkAnswer(this,true)">Bachaa</div>
+    <div class="answer" onclick="checkAnswer(this,false)">Baby</div>
+    <div class="answer" onclick="checkAnswer(this,false)">Saheb</div>
+  </div>
+
+  <div class="question">
+    <h3>3. Who do you love the most?</h3>
+    <div class="answer" onclick="checkAnswer(this,true)">Siddhi</div>
+    <div class="answer" onclick="checkAnswer(this,true)">Manisha Shingole ki ladki</div>
+    <div class="answer" onclick="checkAnswer(this,true)">Jitendra Shingole ki ladki</div>
+    <div class="answer" onclick="checkAnswer(this,true)">Dhariya Shingole ki behen</div>
+  </div>
+
+  <div class="question">
+    <h3>5. who is most special to me? ❤️</h3>
+    <div class="answer" onclick="checkAnswer(this,true,true)">youuuuuuu ❤️</div>
+    <div class="answer" onclick="runAway(this)">bappa</div>
+    <div class="answer" onclick="runAway(this)">frds</div>
+    <div class="answer" onclick="runAway(this)">fam</div>
+  </div>
+
+
+  <div class="question">
+    <h3>4. chalooo guess my favorite movieee!!!!</h3>
+    <div class="answer" onclick="checkAnswer(this,true)">Mohhabattein</div>
+    <div class="answer" onclick="checkAnswer(this,false)">K3G</div>
+    <div class="answer" onclick="checkAnswer(this,false)">phir hera pheri</div>
+    <div class="answer" onclick="checkAnswer(this,false)">zindhagi phir na milegi dobara</div>
+  </div>
+
+  <div class="question">
+    <h3>5. Choose one ❤️</h3>
+    <div class="answer" onclick="checkAnswer(this,true,true)">Siddhi ❤️</div>
+    <div class="answer" onclick="runAway(this)">F1 Cars 🏎️</div>
+    <div class="answer" onclick="runAway(this)">Shoes 👟</div>
+  </div>
+
+  <button class="btn-pink" onclick="finishQuiz()">Finish 💖</button>
+</section>
+
+<!-- RESULT -->
+<section id="result" class="section">
+  <h1 id="finalScore"></h1>
+  <p>Yayyyyyyyyyyyy!!!!! 💋</p>
+  <button class="btn-pink" onclick="switchSec('result','proposal')">chalooooo nextttttt😍</button>
+</section>
+
+<!-- PROPOSAL -->
+<section id="proposal" class="section">
+  <h1>Last timeee okayyyy!!
+    Do youuuuu loveeeee meeeeeee?
+  </h1>
+  <button class="btn-pink" onclick="yesValentine()">YES 💍</button>
+  <button class="btn-white" id="noBtn" onclick="runNo()">No 😏</button>
+</section>
+
+<!-- HAPPY -->
+<section id="happy" class="section">
+  <h1>Happy Valentine’s Babyyyyyyyy ❤️</h1>
+  <p>Loveeeeeeee youuuuuuuuuuu!!!!!!umahhhhhhhh💋 .</p>
+  <button class="btn-pink" onclick="switchSec('happy','gift')">Here’s your gift 🎁</button>
+</section>
+
+<!-- 💌 GIFT WITH IMAGE -->
+<section id="gift" class="section">
+  <div class="letter-box">
+    <img src="LOVE.jpeg" alt="Love Image" class="love-img">
+
+    <div id="loveText">
+hiiii babyyyyyy!!
+ kadhi mi asa kahi kela nahi kona sati trrrrrr khup jastaaaaa hasu yetoyyyyy malaaaa. hehe!!
+ but iloveuuuu khup khup khupppppp. khuppppp lam zhaloy na apannnnn.khup shant asto ataaaaa . pnnn khup misss karat astey 
+ mi tumhala .....ka nahi karat tumhiiii malaaa textttttttt.mi vattt bagat asteyy khupppppp!
+ idk!! kadhii apan bhetu pn ka nahiiii pnnnnnn bhetuuu tevhaaaa kiva tumhala bagnarrr toh
+ divas mazya ayusyatlaaaaa saglyattt bestttt aselllll (sorry for adding this pn je vatto tech boltey)❤️
+ evdhaaa kahi ata share pn nahi karat tumhi mazyaziiiii pn I'm pretty sure my BABY is doingggg alll greatttt
+ .....mala mahitey mazya kadhe fakt prem ahey je me tumhala devu sakteyy pn fakt prem ne ky hotoooo ...
+u deserve more than thatt mala asa vatto mazya kadhe tunmhala dyaya sarkha kahich nahi  ani mala nahi 
+samjat tumcha sati asa karu tariii kyy jyane tumhala khup changlaa vatell... 
+believe nahi karnar tumhi pn mi nehmi yach gosti cha vichar karat astetyyy ki ky karu kasa karuuuu..
+ stories la reply nahi det mee pn saglyattt jastaa khushh mi hoteyyy tumchee stories bagunnn...
+tumcha pratekk gosti si khup jasta prem hoto mala ... tumhi ghatlele shirt tumhi set kelele hairsss ..
+ tumcha photos madye poseee.. smileee saga sagaaaaaaaa .. 
+ kisss karavasa vatto..
+uncle nahi disat tumhi Tumhala bagunnn asa vattoy mi yedi distey.... 
+tumcha awajjjj ... saglyat jasta tarastey meeee tya satiiiiiii..... 
+mahitey mala saglya gostinsi farak padto tumhi asa caption ka takla.. 
+koni tumhala mention kela asell. evdha jawall ka ahett tumhi tya mulichaa .. 
+bahin asli tarii!!. tumcha baptit bilkull cool nahi me! please apann bolaicha banda zhaloo tari ek da
+tarii yaaa mazha somar hehh doleyyy faktt tunhala sodtatt ya purna jagatt
+lovee u beyond everything !!!!🤍
+stay healthy andd always as smiling 🧿🤍
+someoneee really lovesss you a lottttt alotttttt!!!!!
+ bigg fan sir jiiii!!!!! 😘
+ 
+
+ Haveeee a greattt Valentine'ss   </div>
+  </div>
+</section>
+
+<script>
+// CRACKERS
+for(let i=0;i<25;i++){
+  const c=document.createElement('div');
+  c.className='cracker';
+  c.innerHTML='✨';
+  c.style.left=Math.random()*100+'vw';
+  c.style.animationDuration=(3+Math.random()*4)+'s';
+  document.body.appendChild(c);
+}
+
+let score=0;
+let runSpeed=160;
+
+function checkAnswer(el, correct, kiss=false){
+  if(el.classList.contains('disabled')) return;
+  const sib = el.parentElement.querySelectorAll('.answer');
+  sib.forEach(a=>a.classList.add('disabled'));
+
+  if(correct){
+    el.classList.add('correct');
+    score++;
+    if(kiss) kissRain('💋');
+  }else{
+    el.classList.add('wrong');
+  }
+  document.getElementById('score').innerText = score;
+}
+
+function runAway(btn){
+  btn.style.transition = runSpeed+'ms';
+  btn.style.left = (Math.random()*240-120)+'px';
+  btn.style.top  = (Math.random()*240-120)+'px';
+  runSpeed -= 15;
+}
+
+function finishQuiz(){
+  switchSec('quiz','result');
+  document.getElementById('finalScore').innerHTML=`You got ${score}/5 💖`;
+  kissRain('💋');
+}
+
+function switchSec(a,b){
+  document.getElementById(a).classList.remove('active');
+  document.getElementById(b).classList.add('active');
+}
+
+function runNo(){
+  const btn=document.getElementById('noBtn');
+  btn.style.left=Math.random()*200-100+'px';
+  btn.style.top=Math.random()*200-100+'px';
+  btn.innerText=["kaa nahiiii?","bajulaa yes press kara ghupp okayy!!","kayyyyyyyy ????"," 😭😭😭😭😭😭😭😭"][Math.floor(Math.random()*4)];
+}
+
+function yesValentine(){
+  switchSec('proposal','happy');
+  kissRain('❤️');
+  const audio = new Audio("audio.mp3")
+  audio.play();
+  if('vibrate' in navigator){
+    navigator.vibrate([200,100,200])
+  }
+}
+
+function kissRain(icon){
+  for(let i=0;i<30;i++){
+    const h=document.createElement('div');
+    h.className='rain-heart';
+    h.innerHTML=icon;
+    h.style.left=Math.random()*100+'vw';
+    h.style.animationDuration=(3+Math.random()*2)+'s';
+    document.body.appendChild(h);
+    setTimeout(()=>h.remove(),5000);
+  }
+}
+
+function typeLetter(){
+  const el=document.getElementById("loveText");
+  const msg=el.innerText;
+  el.innerText="";
+  let i=0;
+  const t=setInterval(()=>{
+    el.innerText+=msg.charAt(i);
+    i++;
+    if(i>=msg.length) clearInterval(t);
+  },40);
+}
+</script>
+
+</body>
+</html>
